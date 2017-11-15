@@ -24,24 +24,24 @@ Now, you need a function to do:
 ```
 private void runTask() {
   try {
-  while (true) {
-    if (Platform.isFxApplicationThread()) {
-      new Runnable() {
-        public void run( ) {
-          System.out.println("Running!");
-        }
-      };
-    }
-    else {
-      Platform.runLater(
-      new Runnable() {
-        public void run( ) {
-          System.out.println("Running!");
-        }
+    while (true) {
+      if (Platform.isFxApplicationThread()) {
+        new Runnable() {
+          public void run( ) {
+            System.out.println("Running!");
+          }
+        };
       }
-    );
-    }
-    Thread.sleep(100);  // Little delay to prevent program crash
+      else {
+        Platform.runLater(
+        new Runnable() {
+          public void run( ) {
+            System.out.println("Running!");
+          }
+        }
+      );
+      }
+      Thread.sleep(100);  // Little delay to prevent program crash
     }
   }
   catch (InterruptedException e) {
