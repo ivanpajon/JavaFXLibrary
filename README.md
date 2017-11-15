@@ -58,6 +58,8 @@ private void startTask() {
   // Both methods are allowed to asign the task
   t1.setTask(task);
   //t1.setTask(() -> runTask(l));
+  
+  // Create the thread with the task and then start it
   t1.createThread();
   t1.startThread();
 }
