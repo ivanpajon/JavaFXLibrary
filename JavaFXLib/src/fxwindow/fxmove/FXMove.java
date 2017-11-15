@@ -1,26 +1,37 @@
 package fxwindow.fxmove;
 
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class FXMove {
 	
-	private boolean maximized;
+	private AnchorPane root;
 	private double initX, initY;
 
 	public FXMove() {
-		maximized = false;
+		
+	}
+	
+	public FXMove(AnchorPane root) {
+		this.root = root;
+	}
+	
+	public void setContext(AnchorPane root) {
+		this.root = root;
 	}
 	
 	public void movePressed(MouseEvent e) {
-		if (!maximized) {
+		Stage stage = (Stage) root.getScene().getWindow();
+		if (!stage.isMaximized()) {
 		    initX = e.getSceneX();
 		    initY = e.getSceneY();
 		}
     }
 	
-	public void moveDragged(MouseEvent e, Stage stage) {
-		if (!maximized) {
+	public void moveDragged(MouseEvent e) {
+		Stage stage = (Stage) root.getScene().getWindow();
+		if (!stage.isMaximized()) {
 	        stage.setX(e.getScreenX()-initX);
 	        stage.setY(e.getScreenY()-initY);
 		}
@@ -28,7 +39,6 @@ public class FXMove {
 			stage.setMaximized(false);
 			stage.setX(e.getScreenX()-initX);
 	        stage.setY(e.getScreenY()-initY);
-	        maximized = false;
 		}
 	}
 }
