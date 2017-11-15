@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 public class FXResize {
 	
 	private AnchorPane root;
-	private Pane paneUp, paneRight, paneDown, paneLeft;
+	private Pane paneUp, paneRight, paneDown, paneLeft, paneUpLeft, paneUpRight, paneDownRight, paneDownLeft;
 	private double initY, initX, initWidth, initHeight;
 	
 	public FXResize() {
@@ -26,6 +26,20 @@ public class FXResize {
 		this.paneRight = paneRight;
 		this.paneDown = paneDown;
 		this.paneLeft = paneLeft;
+	}
+	
+	public FXResize(AnchorPane root, Pane paneUp, Pane paneRight, Pane paneDown, Pane paneLeft, Pane paneUpLeft, Pane paneUpRight, Pane paneDownRight, Pane paneDownLeft) {
+		this.root = root;
+		
+		this.paneUp = paneUp;
+		this.paneRight = paneRight;
+		this.paneDown = paneDown;
+		this.paneLeft = paneLeft;
+		
+		this.paneUpLeft = paneUpLeft;
+		this.paneUpRight = paneUpRight;
+		this.paneDownRight = paneDownRight;
+		this.paneDownLeft = paneDownLeft;
 	}
 	
 	public void setContext(AnchorPane root) {
@@ -58,11 +72,23 @@ public class FXResize {
 		this.paneRight = paneRight;
 	}
 	
-	public void setAllPanes(Pane paneUp, Pane paneRight, Pane paneDown, Pane paneLeft) {
+	public void setCornerPanes(Pane paneUpLeft, Pane paneUpRight, Pane paneDownRight, Pane paneDownLeft) {
+		this.paneUpLeft = paneUpLeft;
+		this.paneUpRight = paneUpRight;
+		this.paneDownRight = paneDownRight;
+		this.paneDownLeft = paneDownLeft;
+	}
+	
+	public void setAllPanes(Pane paneUp, Pane paneRight, Pane paneDown, Pane paneLeft, Pane paneUpLeft, Pane paneUpRight, Pane paneDownRight, Pane paneDownLeft) {
 		this.paneUp = paneUp;
 		this.paneRight = paneRight;
 		this.paneDown = paneDown;
 		this.paneLeft = paneLeft;
+		
+		this.paneUpLeft = paneUpLeft;
+		this.paneUpRight = paneUpRight;
+		this.paneDownRight = paneDownRight;
+		this.paneDownLeft = paneDownLeft;
 	}
 	
 	public void resizeVerticalPressed(MouseEvent e) {
@@ -103,5 +129,51 @@ public class FXResize {
     	Stage stage = (Stage) root.getScene().getWindow();
         
         stage.setWidth(e.getScreenX()-initX);
+    }
+    
+    public void resizeCornerPressed(MouseEvent e) {
+    	Stage stage = (Stage) root.getScene().getWindow();
+        
+        initHeight = stage.getHeight();
+        initY = stage.getY();
+        
+        initWidth = stage.getWidth();
+        initX = stage.getX();
+    }
+    
+    public void resizeUpLeftDragged(MouseEvent e) {
+    	Stage stage = (Stage) root.getScene().getWindow();
+        
+    	stage.setHeight(initHeight-(e.getScreenY()-initY));
+        stage.setY(e.getScreenY());
+        
+        stage.setWidth(initWidth+(initX-e.getScreenX()));
+        stage.setX(e.getScreenX());
+    }
+    
+    public void resizeUpRightDragged(MouseEvent e) {
+    	Stage stage = (Stage) root.getScene().getWindow();
+        
+    	stage.setHeight(initHeight-(e.getScreenY()-initY));
+        stage.setY(e.getScreenY());
+        
+        stage.setWidth(e.getScreenX()-initX);
+    }
+    
+    public void resizeDownRightDragged(MouseEvent e) {
+    	Stage stage = (Stage) root.getScene().getWindow();
+        
+        stage.setHeight(e.getScreenY()-initY);
+        
+        stage.setWidth(e.getScreenX()-initX);
+    }
+    
+    public void resizeDownLeftDragged(MouseEvent e) {
+    	Stage stage = (Stage) root.getScene().getWindow();
+        
+        stage.setHeight(e.getScreenY()-initY);
+        
+        stage.setWidth(initWidth+(initX-e.getScreenX()));
+        stage.setX(e.getScreenX());
     }
 }
