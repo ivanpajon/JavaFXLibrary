@@ -14,8 +14,8 @@ private FXThread t1;
 
 @Override
 public void initialize(URL url, ResourceBundle rb) {
-t1 = new FXThread();
-t2 = new FXThread();
+  t1 = new FXThread();
+  t2 = new FXThread();
 }
 ```
 
@@ -47,4 +47,18 @@ private void runTask() {
   catch (InterruptedException e) {
     System.out.println(e);
   }
+```
+
+Once you have done this, let's make the main function:
+
+```
+private void startTask() {
+  Runnable task = () -> runTask();  // Only needed if don't use lambda
+
+  // Both methods are allowed to asign the task
+  t1.setTask(task);
+  //t1.setTask(() -> runTask(l));
+  t1.createThread();
+  t1.startThread();
+}
 ```
