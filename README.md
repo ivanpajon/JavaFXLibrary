@@ -11,7 +11,7 @@ This package is used to create and manage Threads in JavaFX.
 ### Create a thread
 First you need is create a FXThread object, and then initialize it:
 
-```
+```java
 private FXThread t1;
 
 @Override
@@ -23,7 +23,7 @@ public void initialize(URL url, ResourceBundle rb) {
 
 Now, you need a function to do:
 
-```
+```java
 private void runTask() {
   try {
     while (true) {
@@ -53,7 +53,7 @@ private void runTask() {
 
 Once you have done this, let's make the main function:
 
-```
+```java
 private void startTask() {
   Runnable task = () -> runTask();  // Only needed if don't use lambda
 
