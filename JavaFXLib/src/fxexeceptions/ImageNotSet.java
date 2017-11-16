@@ -7,4 +7,8 @@ public class ImageNotSet extends Exception {
 		super("Image can't be null");
 	}
 	
+	public ImageNotSet(String message) {
+		super(message);
+	}
+	
 }
