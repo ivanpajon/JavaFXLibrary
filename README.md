@@ -5,6 +5,7 @@ This library is created to allow doing most common actions on JavaFX easily.
 You can download **FXLib** [here](https://github.com/ivanzhenlms/JavaFXLibrary/raw/master/JavaFXLib/FXLib.jar).
 
 Or if you prefer, you can see and download and example using this library [here](https://github.com/ivanzhenlms/JavaFXLibraryTest).
+
 This project needs you configure build-path.
 
 ## FXThread package
