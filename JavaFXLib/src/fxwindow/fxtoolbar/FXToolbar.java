@@ -1,5 +1,6 @@
 package fxwindow.fxtoolbar;
 
+import fxexeceptions.ImageNotSet;
 import fxwindow.fxresize.FXResize;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -76,18 +77,27 @@ public class FXToolbar {
     }
 	
 	public void maximizeWindow(FXResize fxresize, ImageView imgMaximize) {
-		Stage stage = (Stage) root.getScene().getWindow();
-		
-        if (!stage.isMaximized()) {
-            stage.setMaximized(true);
-            fxresize.disableResizing();
-            imgMaximize.setImage(minimizeIcon);
-        }
-        else {
-            stage.setMaximized(false);
-            fxresize.enableResizing();
-            imgMaximize.setImage(maximizeIcon);
-        }
+		try {
+			Stage stage = (Stage) root.getScene().getWindow();
+			
+			if (minimizeIcon == null || maximizeIcon == null) {
+				throw new ImageNotSet();
+			}
+			
+	        if (!stage.isMaximized()) {
+	            stage.setMaximized(true);
+	            fxresize.disableResizing();
+	            imgMaximize.setImage(minimizeIcon);
+	        }
+	        else {
+	            stage.setMaximized(false);
+	            fxresize.enableResizing();
+	            imgMaximize.setImage(maximizeIcon);
+	        }
+		}
+		catch(ImageNotSet ins) {
+			ins.printStackTrace();
+		}
     }
 	
 	public void minimizeWindow() {
