@@ -87,3 +87,13 @@ See principal functions here:
 * **dragToUp(MouseEvent e)**
 * **dragToCenter(MouseEvent e)**
 * **isDraggedToUp(MouseEvent e)**
+
+### FXResize
+
+When you create a **FXResize** object you must to give an **AnchorPane** to the constructor, and all **Panes** for resizing a window (paneUp, paneRight, paneDown, paneLeft, paneUpLeft, paneUpRight, paneDownRight, paneDownLeft) following **clockwise** direction. Also, you have many different constructors like:
+* **FXResize()**
+* **FXResize(AnchorPane root)**
+* **FXResize(AnchorPane root, Pane paneUp, Pane paneRight, Pane paneDown, Pane paneLeft)**
+* **FXResize(AnchorPane root, Pane paneUp, Pane paneRight, Pane paneDown, Pane paneLeft, Pane paneUpLeft, Pane paneUpRight, Pane paneDownRight, Pane paneDownLeft)**
+
+> I strongly recommend to use the last constructor.
