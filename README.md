@@ -124,4 +124,3 @@ Main functions of **FXResize** class are the following:
 * **disableResizing()**
 * **enableResizing()**
 
-> **NOTE:** _disableResizing()_ and _enableResizing()_ actually only work if you setted out all panes.
