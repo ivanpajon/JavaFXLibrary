@@ -4,6 +4,8 @@ This library is created to allow doing most common actions on JavaFX easily.
 
 You can download **FXLib** [here](https://github.com/ivanzhenlms/JavaFXLibrary/raw/master/JavaFXLib/FXLib.jar).
 
+Or if you prefer, you can see and download and example using this library [here](https://github.com/ivanzhenlms/JavaFXLibraryTest)
+
 ## FXThread package
 
 This package is used to create and manage Threads in JavaFX.
@@ -78,7 +80,7 @@ This package contains **FXMove** and **FXResize**. You can create as many object
 
 ### FXMove
 
-When you create a FXMove object you must to give an AnchorPane to the constructor.
+When you create a **FXMove** object you must to give an **AnchorPane** to the constructor.
 See principal functions here:
 * **movePressed(MouseEvent e)**
 * **moveDragged(MouseEvent e)**
