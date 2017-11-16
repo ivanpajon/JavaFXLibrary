@@ -15,24 +15,14 @@ public class FXResize {
 	private double initY, initX, initWidth, initHeight;
 	
 	public FXResize() {
-		this.root = null;
-		
+		panes = new ArrayList<Pane>();
 		panesToArrayList(this.panes);
 	}
 	
 	public FXResize(AnchorPane root) {
 		this.root = root;
 		
-		this.paneUp = null;
-		this.paneRight = null;
-		this.paneDown = null;
-		this.paneLeft = null;
-		
-		this.paneUpLeft = null;
-		this.paneUpRight = null;
-		this.paneDownRight = null;
-		this.paneDownLeft = null;
-		
+		panes = new ArrayList<Pane>();
 		panesToArrayList(this.panes);
 	}
 	
@@ -44,11 +34,7 @@ public class FXResize {
 		this.paneDown = paneDown;
 		this.paneLeft = paneLeft;
 		
-		this.paneUpLeft = null;
-		this.paneUpRight = null;
-		this.paneDownRight = null;
-		this.paneDownLeft = null;
-		
+		panes = new ArrayList<Pane>();
 		panesToArrayList(this.panes);
 	}
 	
@@ -65,6 +51,7 @@ public class FXResize {
 		this.paneDownRight = paneDownRight;
 		this.paneDownLeft = paneDownLeft;
 		
+		panes = new ArrayList<Pane>();
 		panesToArrayList(this.panes);
 	}
 	
@@ -203,45 +190,23 @@ public class FXResize {
         stage.setX(e.getScreenX());
     }
     
-    // TODO: Use for each to prevent nulls
     public void disableResizing() {
-    	/*for (Pane p : panes) {
+    	for (Pane p : panes) {
     		if (p != null) {
     			p.setVisible(false);
     		}
-    	}*/
-    	this.paneUp.setVisible(false);
-    	this.paneRight.setVisible(false);
-    	this.paneDown.setVisible(false);
-    	this.paneLeft.setVisible(false);
-    	
-    	this.paneUpLeft.setVisible(false);
-    	this.paneUpRight.setVisible(false);
-    	this.paneDownRight.setVisible(false);
-    	this.paneDownLeft.setVisible(false);
+    	}
     }
     
-    // TODO: Use for each to prevent nulls
     public void enableResizing() {
-    	/*for (Pane p : panes) {
+    	for (Pane p : panes) {
     		if (p != null) {
-    			p.setVisible(false);
+    			p.setVisible(true);
     		}
-    	}*/
-    	this.paneUp.setVisible(true);
-    	this.paneRight.setVisible(true);
-    	this.paneDown.setVisible(true);
-    	this.paneLeft.setVisible(true);
-    	
-    	this.paneUpLeft.setVisible(true);
-    	this.paneUpRight.setVisible(true);
-    	this.paneDownRight.setVisible(true);
-    	this.paneDownLeft.setVisible(true);
+    	}
     }
     
     private void panesToArrayList(ArrayList<Pane> panes) {
-    	panes = new ArrayList<Pane>();
-    	
     	panes.add(this.paneUp);
     	panes.add(this.paneRight);
     	panes.add(this.paneDown);
