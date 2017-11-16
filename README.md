@@ -101,7 +101,7 @@ When you create a **FXResize** object you must to give an **AnchorPane** to the 
 > I strongly recommend to use the last constructor.
 
 Main functions of **FXResize** class are the following:
-* **setContext(_AnchorPane root_)**
+* **setContext(**_AnchorPane root_**)**
 * **setPaneUp(_Pane paneUp_)**
 * **setPaneRight(_Pane paneRight_)**
 * **setPaneDown(_Pane paneDown_)**
