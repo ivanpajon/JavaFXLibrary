@@ -68,6 +68,20 @@ private void startTask() {
 ```
 
 **NOTE**: Order is relevant, when we have already create and initialize FXThread object and a runnable with the function you want to do, must to do this in order:
-* Use setTask()
-* Use createThread()
-* Use startThread()
+* Use **setTask()**
+* Use **createThread()**
+* Use **startThread()**
+
+## FXWindow
+
+This package contains **FXMove** and **FXResize**. You can create as many objects as you need.
+
+### FXMove
+
+When you create a FXMove object you must to give an AnchorPane to the constructor.
+See principal functions here:
+* **movePressed(MouseEvent e)**
+* **moveDragged(MouseEvent e)**
+* **dragToUp(MouseEvent e)**
+* **dragToCenter(MouseEvent e)**
+* **isDraggedToUp(MouseEvent e)**
