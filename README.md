@@ -2,6 +2,8 @@
 
 This library is created to allow doing most common actions on JavaFX easily.
 
+You can download **FXLib** [here](https://github.com/ivanzhenlms/JavaFXLibrary/raw/master/JavaFXLib/FXLib.jar).
+
 ## FXThread package
 
 This package is used to create and manage Threads in JavaFX.
