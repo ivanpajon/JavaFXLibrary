@@ -221,6 +221,24 @@ public class FXResize {
     	this.paneDownLeft.setVisible(false);
     }
     
+    // TODO: Use for each to prevent nulls
+    public void enableResizing() {
+    	/*for (Pane p : panes) {
+    		if (p != null) {
+    			p.setVisible(false);
+    		}
+    	}*/
+    	this.paneUp.setVisible(true);
+    	this.paneRight.setVisible(true);
+    	this.paneDown.setVisible(true);
+    	this.paneLeft.setVisible(true);
+    	
+    	this.paneUpLeft.setVisible(true);
+    	this.paneUpRight.setVisible(true);
+    	this.paneDownRight.setVisible(true);
+    	this.paneDownLeft.setVisible(true);
+    }
+    
     private void panesToArrayList(ArrayList<Pane> panes) {
     	panes = new ArrayList<Pane>();
     	
