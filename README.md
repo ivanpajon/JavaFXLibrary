@@ -4,9 +4,7 @@ This library is created to allow doing most common actions on JavaFX easily.
 
 You can download **FXLib** [here](https://github.com/ivanzhenlms/JavaFXLibrary/raw/master/JavaFXLib/FXLib.jar).
 
-Or if you prefer, you can see and download and example using this library [here](https://github.com/ivanzhenlms/JavaFXLibraryTest).
-
-This project needs you configure _build-path_.
+Or if you prefer, you can see and download an example using this library [here](https://github.com/ivanzhenlms/JavaFXLibraryTest).
 
 ## FXThread package
 
@@ -80,7 +78,11 @@ private void startTask() {
 
 This package contains **FXMove** and **FXResize**. You can create as many objects as you need.
 
+Notice that in FXWindow child's packages, root object in constructors must be root element in fxml file. 
+
 ### FXMove
+
+Used to managing move actions in our window.
 
 When you create a **FXMove** object you must to give an **AnchorPane** to the constructor.
 See principal functions here:
@@ -92,7 +94,9 @@ See principal functions here:
 
 ### FXResize
 
-When you create a **FXResize** object you must to give an **AnchorPane** to the constructor, and all **Panes** for resizing a window (paneUp, paneRight, paneDown, paneLeft, paneUpLeft, paneUpRight, paneDownRight, paneDownLeft) following **clockwise** direction. Also, you have many different constructors like:
+Used to managing resize options in our window.
+
+When you create a **FXResize** object you must to give an **AnchorPane** to the constructor, and all **Panes** for resizing a window (_paneUp, paneRight, paneDown, paneLeft, paneUpLeft, paneUpRight, paneDownRight, paneDownLeft_) following **clockwise** direction. Also, you have many different constructors like:
 * **FXResize()**
 * **FXResize(**_AnchorPane root_**)**
 * **FXResize(**_AnchorPane root, Pane paneUp, Pane paneRight, Pane paneDown, Pane paneLeft_**)**
@@ -124,3 +128,22 @@ Main functions of **FXResize** class are the following:
 * **disableResizing()**
 * **enableResizing()**
 
+### FXToolbar
+
+Used to managing basic actions in the toolbar of our application, like close, maximize and iconify.
+
+When you create a **FXToolbar** object you must to give an **AnchorPane** to the constructor, and if you use icons in your buttons (_maximizeIcon, minimizeIcon_) also can give these icons to the constructor. You have some different constructors like:
+* **FXToolbar()**
+* **FXToolbar(**_AnchorPane root_**)**
+* **FXToolbar(**_AnchorPane root, Image minimizeIcon, Image maximizeIcon_**)**
+
+> I recommend to use the last constructor if you have icons in your buttons.
+Main functions of **FXResize** class are the following:
+* **setContext(**_AnchorPane root_**)**
+* **setMinimizeIcon(**_Image minimizeIcon_**)**
+* **setMaximizeIcon(**_Image maximizeIcon_**)**
+* **closeWindow()**
+* **maximizeWindow()**
+* **maximizeWindow(**_FXResize fxresize_**)**
+* **maximizeWindow(**_FXResize fxresize, ImageView imgMaximize_**)**
+* **iconifyWindow()**
