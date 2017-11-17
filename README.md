@@ -81,6 +81,7 @@ This package contains **FXMove** and **FXResize**. You can create as many object
 ### FXMove
 
 Used to managing move actions in our window.
+
 When you create a **FXMove** object you must to give an **AnchorPane** to the constructor.
 See principal functions here:
 * **movePressed(**_MouseEvent e_**)**
@@ -92,6 +93,7 @@ See principal functions here:
 ### FXResize
 
 Used to managing resize options in our window.
+
 When you create a **FXResize** object you must to give an **AnchorPane** to the constructor, and all **Panes** for resizing a window (paneUp, paneRight, paneDown, paneLeft, paneUpLeft, paneUpRight, paneDownRight, paneDownLeft) following **clockwise** direction. Also, you have many different constructors like:
 * **FXResize()**
 * **FXResize(**_AnchorPane root_**)**
@@ -127,6 +129,7 @@ Main functions of **FXResize** class are the following:
 ### FXToolbar
 
 Used to managing basic actions in the toolbar of our application, like close, maximize and iconify.
+
 When you create a **FXToolbar** object you must to give an **AnchorPane** to the constructor, and if you use icons in your buttons (maximizeIcon, minimizeIcon) also can give these icons to the constructor. You have some different constructors like:
 * **FXToolbar()**
 * **FXToolbar(**_AnchorPane root_**)**
@@ -134,11 +137,11 @@ When you create a **FXToolbar** object you must to give an **AnchorPane** to the
 
 > I recommend to use the last constructor if you have icons in your buttons.
 Main functions of **FXResize** class are the following:
-* **setContext(_AnchorPane root_)**
-* **setMinimizeIcon(_Image minimizeIcon_)**
-* **setMaximizeIcon(_Image maximizeIcon_)**
+* **setContext(**_AnchorPane root_**)**
+* **setMinimizeIcon(**_Image minimizeIcon_**)**
+* **setMaximizeIcon(**_Image maximizeIcon_**)**
 * **closeWindow()**
 * **maximizeWindow()**
-* **maximizeWindow(_FXResize fxresize_)**
-* **maximizeWindow(_FXResize fxresize, ImageView imgMaximize_)**
+* **maximizeWindow(**_FXResize fxresize_**)**
+* **maximizeWindow(**_FXResize fxresize, ImageView imgMaximize_**)**
 * **iconifyWindow()**
