@@ -94,7 +94,7 @@ See principal functions here:
 
 Used to managing resize options in our window.
 
-When you create a **FXResize** object you must to give an **AnchorPane** to the constructor, and all **Panes** for resizing a window (paneUp, paneRight, paneDown, paneLeft, paneUpLeft, paneUpRight, paneDownRight, paneDownLeft) following **clockwise** direction. Also, you have many different constructors like:
+When you create a **FXResize** object you must to give an **AnchorPane** to the constructor, and all **Panes** for resizing a window (_paneUp, paneRight, paneDown, paneLeft, paneUpLeft, paneUpRight, paneDownRight, paneDownLeft_) following **clockwise** direction. Also, you have many different constructors like:
 * **FXResize()**
 * **FXResize(**_AnchorPane root_**)**
 * **FXResize(**_AnchorPane root, Pane paneUp, Pane paneRight, Pane paneDown, Pane paneLeft_**)**
@@ -130,7 +130,7 @@ Main functions of **FXResize** class are the following:
 
 Used to managing basic actions in the toolbar of our application, like close, maximize and iconify.
 
-When you create a **FXToolbar** object you must to give an **AnchorPane** to the constructor, and if you use icons in your buttons (maximizeIcon, minimizeIcon) also can give these icons to the constructor. You have some different constructors like:
+When you create a **FXToolbar** object you must to give an **AnchorPane** to the constructor, and if you use icons in your buttons (_maximizeIcon, minimizeIcon_) also can give these icons to the constructor. You have some different constructors like:
 * **FXToolbar()**
 * **FXToolbar(**_AnchorPane root_**)**
 * **FXToolbar(**_AnchorPane root, Image minimizeIcon, Image maximizeIcon_**)**
