@@ -9,7 +9,8 @@ public class FXThread {
 	}
 	
 	public FXThread(Runnable r) {
-		this.t = new Thread(r);
+		this.r = r;
+		this.t = new Thread(this.r);
 		this.t.setDaemon(true);
 	}
 	
