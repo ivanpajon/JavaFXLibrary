@@ -100,7 +100,7 @@ public class FXToolbar {
 		}
     }
 	
-	public void minimizeWindow() {
+	public void iconifyWindow() {
 		Stage stage = (Stage) root.getScene().getWindow();
         stage.setIconified(true);
     }
