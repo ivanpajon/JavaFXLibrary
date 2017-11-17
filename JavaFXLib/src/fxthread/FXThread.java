@@ -19,6 +19,7 @@ public class FXThread {
 	
 	public void createThread() {
 		this.t = new Thread(this.r);
+		
 		this.t.setDaemon(true);
 	}
 	
