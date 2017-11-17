@@ -78,6 +78,8 @@ private void startTask() {
 
 This package contains **FXMove** and **FXResize**. You can create as many objects as you need.
 
+Notice that in FXWindow child's packages, root object in constructors must be root element in fxml file. 
+
 ### FXMove
 
 Used to managing move actions in our window.
