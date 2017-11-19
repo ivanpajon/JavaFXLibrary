@@ -31,7 +31,7 @@ public class FXMove {
 	
 	/**
 	 * Sets root elemet of stage for FXMove object
-	 * @param root
+	 * @param root Root element of the stage as AnchorPane
 	 */
 	public void setContext(AnchorPane root) {
 		this.root = root;
