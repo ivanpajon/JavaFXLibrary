@@ -1,7 +1,7 @@
 package fxexeceptions;
 
 /**
- * This class captures errors if not set any image
+ * <h1>This class captures errors if not set any image</h1>
  * @author Ivan Zhen
  * @version 1.0
  */
