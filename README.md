@@ -6,6 +6,8 @@ You can download **FXLib** [here](https://github.com/ivanzhenlms/JavaFXLibrary/r
 
 Or if you prefer, you can see and download an example using this library [here](https://github.com/ivanzhenlms/JavaFXLibraryTest).
 
+For more information about packages and classes you can read the **Javadoc** of this project [here](http://htmlpreview.github.io/?https://github.com/ivanzhenlms/JavaFXLibrary/blob/master/JavaFXLib/doc/index.html).
+
 ## FXThread package
 
 This package is used to create and manage **Threads** in **JavaFX**.
