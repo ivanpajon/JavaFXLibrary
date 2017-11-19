@@ -9,14 +9,14 @@ public class ImageNotSet extends Exception {
 	private static final long serialVersionUID = 919409365054623198L;
 	
 	/**
-	 * Create a new ImageNotSet error with default message
+	 * Creates a new ImageNotSet error with default message
 	 */
 	public ImageNotSet() {
 		super("Image can't be null");
 	}
 	
 	/**
-	 * Create a new ImageNotSet error with custom message
+	 * Creates a new ImageNotSet error with custom message
 	 * @param message Message to show in error description
 	 */
 	public ImageNotSet(String message) {
