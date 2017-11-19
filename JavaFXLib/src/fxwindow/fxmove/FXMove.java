@@ -6,8 +6,8 @@ import javafx.stage.Stage;
 
 /**
  * <h1>This class allows to move your undecorated JavaFX window</h1>
- * @author Ivan Zhen
- * @version 1.0
+ * @author	Ivan Zhen
+ * @version	1.0
  */
 public class FXMove {
 	
@@ -38,7 +38,7 @@ public class FXMove {
 	}
 	
 	/**
-	 * Captures windows position when clicked on move panel
+	 * Captures window position when clicked on move panel
 	 * @param e MouseEvent
 	 */
 	public void movePressed(MouseEvent e) {
@@ -94,8 +94,8 @@ public class FXMove {
 	
 	/**
 	 * Check if window is dragged to upper
-	 * @param e MouseEvent
-	 * @return True if window it is dragged to upper or false if doesn't
+	 * @param e	MouseEvent
+	 * @return	True if window it is dragged to upper or false if doesn't
 	 */
 	public boolean isDraggedToUp(MouseEvent e) {
  		if (e.getScreenY() < 10) {
