@@ -1,7 +1,7 @@
 package fxthread;
 
 /**
- * This class allows to create a Thread and manage it
+ * <h1>This class allows to create a Thread and manage it</h1>
  * @author Ivan Zhen
  * @version 1.0
  */
