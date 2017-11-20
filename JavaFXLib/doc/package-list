@@ -2,3 +2,4 @@ fxexeceptions
 fxthread
 fxwindow.fxmove
 fxwindow.fxresize
+fxwindow.fxtoolbar
