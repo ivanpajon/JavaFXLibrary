@@ -25,12 +25,33 @@ public class FXStage {
 		this.open = false;
 	}
 	
-	public FXStage(String url, String title) {
+	public FXStage(String url) {
 		this.url = url;
-		this.title = title;
+		
 		this.stage = new Stage();
 		this.undecorated = false;
 		this.open = false;
+	}
+	
+	public FXStage(String url, String title) {
+		this.url = url;
+		this.title = title;
+		
+		this.stage = new Stage();
+		this.undecorated = false;
+		this.open = false;
+	}
+	
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public void setUndecorated(Boolean b) {
+		this.undecorated = b;
 	}
 	
 	public void open() {
@@ -64,9 +85,5 @@ public class FXStage {
 		catch (IOException e) {
 			System.out.println(e);
 		}
-	}
-	
-	public void setUndecorated(Boolean b) {
-		this.undecorated = b;
 	}
 }
