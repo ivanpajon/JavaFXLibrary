@@ -1,6 +1,7 @@
 package fxwindow.fxstage;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.file.Paths;
 
 import javafx.event.ActionEvent;
@@ -65,6 +66,19 @@ public class FXStage {
 	
 	public void updateScene(ActionEvent e) {
 		this.stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+		
+		if (scene == null) {
+			try {
+				this.root = FXMLLoader.load(Paths.get(this.url).toUri().toURL());
+				this.scene = new Scene(this.root);
+			}
+			catch (MalformedURLException e1) {
+				System.out.println(e1);
+			}
+			catch (IOException e1) {
+				System.out.println(e1);
+			}
+		}
 		
 		this.stage.setScene(this.scene);
 		this.stage.setTitle(this.title);
