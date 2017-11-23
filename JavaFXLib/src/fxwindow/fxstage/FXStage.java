@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Paths;
 
+import fxexeceptions.RootNotSet;
 import fxexeceptions.SceneNotSet;
+import fxexeceptions.UrlNotSet;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -70,10 +72,11 @@ public class FXStage {
 	}
 	
 	public void updateScene(String url) {
-		this.stage = (Stage) this.root.getScene().getWindow();
-		this.url = url;
-		
 		try {
+			if (this.root == null) {throw new RootNotSet();}
+			this.stage = (Stage) this.root.getScene().getWindow();
+			this.url = url;
+			
 			this.root = FXMLLoader.load(Paths.get(this.url).toUri().toURL());
 			this.scene = new Scene(this.root);
 		}
@@ -83,6 +86,9 @@ public class FXStage {
 		catch (IOException e) {
 			System.out.println(e);
 		}
+		catch (RootNotSet rns) {
+			rns.printStackTrace();
+		}
 		
 		this.stage.setScene(this.scene);
 		this.stage.setTitle(this.title);
@@ -90,14 +96,15 @@ public class FXStage {
 	}
 	
 	public void updateScene() {
-		this.stage = (Stage) this.root.getScene().getWindow();
-		
 		try {
+			if (this.root == null) {throw new RootNotSet();}
+			this.stage = (Stage) this.root.getScene().getWindow();
+			
 			if (this.url != null) {
 				this.root = FXMLLoader.load(Paths.get(this.url).toUri().toURL());
 				this.scene = new Scene(this.root);
 			}
-			if (scene == null) {throw new SceneNotSet();}
+			if (this.scene == null) {throw new SceneNotSet();}
 			this.root = FXMLLoader.load(Paths.get(this.url).toUri().toURL());
 			this.scene = new Scene(this.root);
 		}
@@ -110,6 +117,9 @@ public class FXStage {
 		catch (SceneNotSet sns) {
 			sns.printStackTrace();
 		}
+		catch (RootNotSet rns) {
+			rns.printStackTrace();
+		}
 		
 		this.stage.setScene(this.scene);
 		this.stage.setTitle(this.title);
@@ -118,6 +128,7 @@ public class FXStage {
 	
 	public void open() {
 		try {
+			if (this.url == null) {throw new UrlNotSet();}
 			if (undecorated) {
 				this.stage = new Stage();
 				this.root = FXMLLoader.load(Paths.get(this.url).toUri().toURL());
@@ -141,6 +152,9 @@ public class FXStage {
 		}
 		catch (IOException e) {
 			System.out.println(e);
+		}
+		catch (UrlNotSet e) {
+			e.printStackTrace();
 		}
 	}
 }
