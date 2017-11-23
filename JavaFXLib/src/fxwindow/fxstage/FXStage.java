@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Paths;
 
+import fxexeceptions.SceneNotSet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -22,6 +23,12 @@ public class FXStage {
 	private Stage stage;
 	
 	public FXStage() {
+		this.undecorated = false;
+	}
+	
+	public FXStage(AnchorPane root) {
+		this.root = root;
+		
 		this.undecorated = false;
 	}
 	
@@ -64,20 +71,42 @@ public class FXStage {
 		this.undecorated = b;
 	}
 	
-	public void updateScene(ActionEvent e) {
-		this.stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+	public void updateScene(String url) {
+		this.stage = (Stage) this.root.getScene().getWindow();
+		this.url = url;
 		
-		if (scene == null) {
-			try {
-				this.root = FXMLLoader.load(Paths.get(this.url).toUri().toURL());
-				this.scene = new Scene(this.root);
-			}
-			catch (MalformedURLException e1) {
-				System.out.println(e1);
-			}
-			catch (IOException e1) {
-				System.out.println(e1);
-			}
+		try {
+			this.root = FXMLLoader.load(Paths.get(this.url).toUri().toURL());
+			this.scene = new Scene(this.root);
+		}
+		catch (MalformedURLException e) {
+			System.out.println(e);
+		}
+		catch (IOException e) {
+			System.out.println(e);
+		}
+		
+		this.stage.setScene(this.scene);
+		this.stage.setTitle(this.title);
+		this.stage.show();
+	}
+	
+	public void updateScene() {
+		this.stage = (Stage) this.root.getScene().getWindow();
+		
+		try {
+			if (scene == null) {throw new SceneNotSet();}
+			this.root = FXMLLoader.load(Paths.get(this.url).toUri().toURL());
+			this.scene = new Scene(this.root);
+		}
+		catch (MalformedURLException e) {
+			System.out.println(e);
+		}
+		catch (IOException e) {
+			System.out.println(e);
+		}
+		catch (SceneNotSet sns) {
+			sns.printStackTrace();
 		}
 		
 		this.stage.setScene(this.scene);
