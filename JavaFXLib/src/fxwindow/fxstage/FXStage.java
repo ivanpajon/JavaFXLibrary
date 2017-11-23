@@ -5,9 +5,7 @@ import java.net.MalformedURLException;
 import java.nio.file.Paths;
 
 import fxexeceptions.SceneNotSet;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -38,9 +36,9 @@ public class FXStage {
 		this.undecorated = false;
 	}
 	
-	public FXStage(String url, String title) {
+	public FXStage(AnchorPane root, String url) {
+		this.root = root;
 		this.url = url;
-		this.title = title;
 		
 		this.undecorated = false;
 	}
@@ -95,6 +93,10 @@ public class FXStage {
 		this.stage = (Stage) this.root.getScene().getWindow();
 		
 		try {
+			if (this.url != null) {
+				this.root = FXMLLoader.load(Paths.get(this.url).toUri().toURL());
+				this.scene = new Scene(this.root);
+			}
 			if (scene == null) {throw new SceneNotSet();}
 			this.root = FXMLLoader.load(Paths.get(this.url).toUri().toURL());
 			this.scene = new Scene(this.root);
