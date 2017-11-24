@@ -157,4 +157,21 @@ public class FXStage {
 			e.printStackTrace();
 		}
 	}
+	
+	public void close() {
+		try {
+			if (this.stage == null) throw new RootNotSet();
+			
+			this.stage = (Stage) this.root.getScene().getWindow();
+	        this.stage.close();
+	        for (Thread t : Thread.getAllStackTraces().keySet()) {
+	    		if (t.getState() == Thread.State.RUNNABLE) {
+	    			t.interrupt();
+	    		}
+	    	}
+		}
+		catch (RootNotSet e) {
+			System.out.println(e);
+		}
+	}
 }
