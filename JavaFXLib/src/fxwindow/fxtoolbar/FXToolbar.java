@@ -2,10 +2,12 @@ package fxwindow.fxtoolbar;
 
 import fxexeceptions.ImageNotSet;
 import fxwindow.fxresize.FXResize;
+import javafx.animation.FadeTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * <h1>This class allow to manage basic actions for window</h1>
@@ -86,9 +88,22 @@ public class FXToolbar {
 	}
 	
 	/**
-	 * Close window
+	 * Closes window with transition
 	 */
 	public void closeWindow() {
+		FadeTransition ft = new FadeTransition();
+		ft.setDuration(Duration.millis(500));
+		ft.setNode(root);
+		ft.setFromValue(1);
+		ft.setToValue(0);
+		ft.setOnFinished(e -> closeAction());
+		ft.play();
+	}
+	
+	/**
+	 * Closes window when transition finishes
+	 */
+	private void closeAction() {
 		Stage stage = (Stage) root.getScene().getWindow();
         stage.close();
         for (Thread t : Thread.getAllStackTraces().keySet()) {
@@ -99,7 +114,7 @@ public class FXToolbar {
 	}
 	
 	/**
-	 * Maximize and minimize window
+	 * Maximizes and minimizes window
 	 */
 	public void maximizeWindow() {
 		Stage stage = (Stage) root.getScene().getWindow();
@@ -113,7 +128,7 @@ public class FXToolbar {
     }
 	
 	/**
-	 * Maximize and minimize window and disable or enable resizing
+	 * Maximizes and minimizes window and disable or enable resizing
 	 * @param fxresize Object FXResize only if you are using resizing
 	 */
 	public void maximizeWindow(FXResize fxresize) {
@@ -130,7 +145,7 @@ public class FXToolbar {
     }
 	
 	/**
-	 * Maximize or minimize window and manage maximize and minimize images for ImageView
+	 * Maximizes or minimizes window and manages maximize and minimize images for ImageView
 	 * @param imgMaximize ImageView for maximize and minimize button
 	 */
 	public void maximizeWindow(ImageView imgMaximize) {
@@ -156,7 +171,7 @@ public class FXToolbar {
     }
 	
 	/**
-	 * Maximize or minimize window, disable or enable resizing, and manage maximize and minimize images for ImageView
+	 * Maximizes or minimizes window, disable or enable resizing, and manages maximize and minimize images for ImageView
 	 * @param fxresize		Object FXResize only if you are using resizing
 	 * @param imgMaximize	ImageView for maximize and minimize button
 	 */
@@ -185,7 +200,7 @@ public class FXToolbar {
     }
 	
 	/**
-	 * Iconify window
+	 * Iconifies window
 	 */
 	public void iconifyWindow() {
 		Stage stage = (Stage) root.getScene().getWindow();
