@@ -111,6 +111,7 @@ public class FXToolbar {
     			t.interrupt();
     		}
     	}
+        System.exit(0);
 	}
 	
 	/**
