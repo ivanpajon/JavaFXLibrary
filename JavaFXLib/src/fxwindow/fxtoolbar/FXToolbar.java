@@ -91,6 +91,11 @@ public class FXToolbar {
 	public void closeWindow() {
 		Stage stage = (Stage) root.getScene().getWindow();
         stage.close();
+        for (Thread t : Thread.getAllStackTraces().keySet()) {
+    		if (t.getState() == Thread.State.RUNNABLE) {
+    			t.interrupt();
+    		}
+    	}
 	}
 	
 	/**
