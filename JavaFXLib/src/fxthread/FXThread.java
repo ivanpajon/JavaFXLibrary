@@ -25,24 +25,24 @@ public class FXThread {
 	}
 	
 	/**
-	 * Creates new Thread with its Runnable
-	 */
-	public void createThread() {
-		this.t = new Thread(this.r);
-		this.t.setDaemon(true);
-	}
-	
-	/**
 	 * Starts the Thread
 	 */
 	public void startThread() {
+		this.t = new Thread(this.r);
 		this.t.start();
 	}
 	
 	/**
 	 * Stops the Thread
 	 */
-	public void stopThread() {
+	public synchronized void stopThread() {
 		this.t.interrupt();
+	}
+	
+	/**
+	 * Wake up the Thread
+	 */
+	public synchronized void resumeThread() {
+		this.t.notifyAll();
 	}
 }
