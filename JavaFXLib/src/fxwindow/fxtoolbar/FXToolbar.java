@@ -92,7 +92,7 @@ public class FXToolbar {
 	 */
 	public void closeWindow() {
 		FadeTransition ft = new FadeTransition();
-		ft.setDuration(Duration.millis(500));
+		ft.setDuration(Duration.millis(250));
 		ft.setNode(root);
 		ft.setFromValue(1);
 		ft.setToValue(0);
