@@ -10,22 +10,22 @@ public class FXThread {
 	private Runnable r;
 	
 	/**
-	 * Creates new empty FXThread
+	 * Creates new empty FXThread.
 	 */
 	public FXThread() {
 		
 	}
 	
 	/**
-	 * Sets task for run when Thread starts
-	 * @param r Runnable for assign to the thread
+	 * Sets task for run when Thread starts.
+	 * @param r Runnable for assign to the thread.
 	 */
 	public void setTask(Runnable r) {
 		this.r = r;
 	}
 	
 	/**
-	 * Starts the Thread
+	 * Starts the Thread.
 	 */
 	public void startThread() {
 		this.t = new Thread(this.r);
@@ -33,16 +33,9 @@ public class FXThread {
 	}
 	
 	/**
-	 * Stops the Thread
+	 * Stops the Thread.
 	 */
-	public synchronized void stopThread() {
+	public void stopThread() {
 		this.t.interrupt();
-	}
-	
-	/**
-	 * Wake up the Thread
-	 */
-	public synchronized void resumeThread() {
-		this.t.notifyAll();
 	}
 }
