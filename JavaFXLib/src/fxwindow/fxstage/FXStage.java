@@ -14,6 +14,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+/**
+ * <h1>This class allows to manage stages and basic actions for them</h1>
+ * @author Ivan Zhen
+ * @version 1.0
+ */
 public class FXStage {
 	private String url;
 	private String title;
@@ -22,22 +27,38 @@ public class FXStage {
 	private Scene scene;
 	private Stage stage;
 	
+	/**
+	 * Creates empty FXStage object.
+	 */
 	public FXStage() {
 		this.undecorated = false;
 	}
 	
+	/**
+	 * Creates FXStage object with root element of stage.
+	 * @param root Root element of the stage as AnchorPane.
+	 */
 	public FXStage(AnchorPane root) {
 		this.root = root;
 		
 		this.undecorated = false;
 	}
 	
+	/**
+	 * Creates FXStage object with url for open a new stage with it or refresh the actually.
+	 * @param url Path to fxml archive relative to the project folder.
+	 */
 	public FXStage(String url) {
 		this.url = url;
 		
 		this.undecorated = false;
 	}
 	
+	/**
+	 * Creates FXStage object with root element of stage and with url for open a new stage with it or refresh the current one.
+	 * @param root Root element of the stage as AnchorPane.
+	 * @param url Path to fxml archive relative to the project folder.
+	 */
 	public FXStage(AnchorPane root, String url) {
 		this.root = root;
 		this.url = url;
@@ -45,20 +66,37 @@ public class FXStage {
 		this.undecorated = false;
 	}
 	
+	/**
+	 * Sets root elemet of stage for FXToolbar object.
+	 * @param root Root element of the stage as AnchorPane.
+	 */
 	public void setContext(AnchorPane root) {
 		this.root = root;
 	}
 	
+	/**
+	 * Sets the relative path to fxml archive.
+	 * @param url Path to fxml archive relative to the project folder.
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 	
+	/**
+	 * Sets title for the new stage.
+	 * @param title Title for the new stage.
+	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	
+	/**
+	 * Sets the scene by giving it the url to fxml archive.
+	 * @param url Path to fxml archive relative to the project folder.
+	 */
 	public void setScene(String url) {
 		try {
+			this.url = url;
 			this.root = FXMLLoader.load(Paths.get(url).toUri().toURL());
 	        this.scene = new Scene(this.root);
 		}
@@ -67,10 +105,18 @@ public class FXStage {
 		}
 	}
 	
+	/**
+	 * Sets if the new stage will be decorated or undecorated.
+	 * @param b True for new undecorated stage, false for new decorated stage.
+	 */
 	public void setUndecorated(Boolean b) {
 		this.undecorated = b;
 	}
 	
+	/**
+	 * Refresh current scene by giving it the url to fxml archive.
+	 * @param url Path to fxml archive relative to the project folder.
+	 */
 	public void updateScene(String url) {
 		try {
 			if (this.root == null) {throw new RootNotSet();}
@@ -95,6 +141,9 @@ public class FXStage {
 		this.stage.show();
 	}
 	
+	/**
+	 * Refresh current scene. Make sure you have set an url in your FXStage object.
+	 */
 	public void updateScene() {
 		try {
 			if (this.root == null) {throw new RootNotSet();}
@@ -126,6 +175,9 @@ public class FXStage {
 		this.stage.show();
 	}
 	
+	/**
+	 * Opens a new stage. Make sure you have set an url in your FXStage object.
+	 */
 	public void open() {
 		try {
 			if (this.url == null) {throw new UrlNotSet();}
@@ -158,6 +210,9 @@ public class FXStage {
 		}
 	}
 	
+	/**
+	 * Closes current stage and their threads without exiting entire application.
+	 */
 	public void close() {
 		this.stage = (Stage) this.root.getScene().getWindow();
         this.stage.close();
