@@ -15,31 +15,31 @@ public class FXMove {
 	private double initX, initY;
 	
 	/**
-	 * Creates empty FXMove object
+	 * Creates empty FXMove object.
 	 */
 	public FXMove() {
 		
 	}
 	
 	/**
-	 * Creates FXMove object with root element of stage
-	 * @param root Root element of the stage as AnchorPane
+	 * Creates FXMove object with root element of stage.
+	 * @param root Root element of the stage as AnchorPane.
 	 */
 	public FXMove(AnchorPane root) {
 		this.root = root;
 	}
 	
 	/**
-	 * Sets root elemet of stage for FXMove object
-	 * @param root Root element of the stage as AnchorPane
+	 * Sets root elemet of stage for FXMove object.
+	 * @param root Root element of the stage as AnchorPane.
 	 */
 	public void setContext(AnchorPane root) {
 		this.root = root;
 	}
 	
 	/**
-	 * Captures window position when clicked on move panel
-	 * @param e MouseEvent
+	 * Captures window position when clicked on move panel.
+	 * @param e MouseEvent.
 	 */
 	public void movePressed(MouseEvent e) {
 		Stage stage = (Stage) root.getScene().getWindow();
@@ -51,8 +51,8 @@ public class FXMove {
     }
 	
 	/**
-	 * Move the window when drag the move panel
-	 * @param e MouseEvent
+	 * Move the window when drag the move panel.
+	 * @param e MouseEvent.
 	 */
 	public void moveDragged(MouseEvent e) {
 		Stage stage = (Stage) root.getScene().getWindow();
@@ -69,8 +69,8 @@ public class FXMove {
 	}
 	
 	/**
-	 * Maximize the window when its dragged to upper and released
-	 * @param e MouseEvent
+	 * Maximize the window when its dragged to upper and released.
+	 * @param e MouseEvent.
 	 */
 	public void dragToUp(MouseEvent e) {
 		Stage stage = (Stage) root.getScene().getWindow();
@@ -81,8 +81,8 @@ public class FXMove {
  	}
 	
 	/**
-	 * Minimizes the window when it is maximized and is dragged to the center
-	 * @param e MouseEvent
+	 * Minimizes the window when it is maximized and is dragged to the center.
+	 * @param e MouseEvent.
 	 */
 	public void dragToCenter(MouseEvent e) {
 		Stage stage = (Stage) root.getScene().getWindow();
@@ -93,9 +93,9 @@ public class FXMove {
  	}
 	
 	/**
-	 * Check if window is dragged to upper
-	 * @param e	MouseEvent
-	 * @return	True if window it is dragged to upper or false if doesn't
+	 * Check if window is dragged to upper.
+	 * @param e	MouseEvent.
+	 * @return	True if window it is dragged to upper or false if doesn't.
 	 */
 	public boolean isDraggedToUp(MouseEvent e) {
  		if (e.getScreenY() < 10) {
