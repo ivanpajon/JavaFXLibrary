@@ -8,11 +8,12 @@ Or if you prefer, you can see and download an example using this library [here](
 
 For more information about packages and classes you can read the **Javadoc** of this project [here](http://htmlpreview.github.io/?https://github.com/ivanzhenlms/JavaFXLibrary/blob/master/JavaFXLib/doc/index.html).
 
-## FXThread package
+## FXThread
 
 This package is used to create and manage **Threads** in **JavaFX**.
 
 ### Create a thread
+
 First you need is create a **FXThread** object, and then initialize it:
 
 ```java
@@ -55,6 +56,8 @@ private void runTask() {
     System.out.println(e);
   }
 ```
+
+### Start a thread
 
 Once you have done this, let's make the main function:
 
