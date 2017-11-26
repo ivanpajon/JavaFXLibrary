@@ -67,14 +67,12 @@ private void startTask() {
   //t1.setTask(() -> runTask(l));
   
   // Create the thread with the task and then start it
-  t1.createThread();
   t1.startThread();
 }
 ```
 
 **NOTE**: Order is relevant, when we have already create and initialize FXThread object and a runnable with the function you want to do, must to do this in order:
 * Use **setTask()**
-* Use **createThread()**
 * Use **startThread()**
 
 ## FXWindow
