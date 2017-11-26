@@ -17,6 +17,7 @@ First you need is create a **FXThread** object, and then initialize it:
 
 ```java
 private FXThread t1;
+private FXThread t2;
 
 @Override
 public void initialize(URL url, ResourceBundle rb) {
@@ -140,7 +141,7 @@ When you create a **FXToolbar** object you must to give an **AnchorPane** to the
 * **FXToolbar(**_AnchorPane root, Image minimizeIcon, Image maximizeIcon_**)**
 
 > I recommend to use the last constructor if you have icons in your buttons.
-Main functions of **FXResize** class are the following:
+Main functions of **FXToolbar** class are the following:
 * **setContext(**_AnchorPane root_**)**
 * **setMinimizeIcon(**_Image minimizeIcon_**)**
 * **setMaximizeIcon(**_Image maximizeIcon_**)**
